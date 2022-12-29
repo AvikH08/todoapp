@@ -1,0 +1,99 @@
+#main-area {
+    text-align: center;
+    font-family: sans-serif;
+}
+#tasks {
+    text-align: center;
+}
+#tasklist {
+    list-style: none;
+    padding:0;
+}
+#add {
+    background-color: rgb(2, 2, 2);
+    width: 110px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+}
+#add-task {
+    color: white;
+    display: inline;
+}
+#descr,#cat, #date {
+    border: none transparent;
+    outline: none;
+    width: 100%;
+}
+#list-items {
+    width: 60vw;
+    display:flex;
+    padding:0;
+    margin: 0;
+    border: 0;
+    /* text-align:justify; */
+}
+#add:hover {
+    cursor: pointer
+}
+#delete-button {
+    color: red;
+}
+body {
+    background-color: darkgrey;
+    margin-top:0;
+}
+#content {
+    position:relative;
+    background-color:white;
+    width: 60vw;
+    left: 20vw;
+    padding-bottom: 5vw;
+}
+#category-box {
+    width:50%;
+    border-right: 2px solid lightgrey;
+}
+#category-date-box {
+    display: flex;
+}
+#heading {
+    font-family: Garamond; 
+    color: rgb(116, 114, 114);
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 0;
+}
+#description {
+    text-align: left;
+    padding-left:12px;
+}
+#category-box, #date-box {
+    text-align: left;
+    padding-left:12px;
+}
+.question {
+    color: rgb(50, 47, 47);
+    font-size: 12px;
+}
+#delete-icon {
+    padding-left: 20px;
+    text-align: left;
+    width: 3vw;
+}
+#task-info {
+    color: rgb(116, 114, 114);
+    width: 42vw;
+    text-align: left;
+}
+#task-category {
+    width: 15vw;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+#category-label {
+    padding: 5px;
+    border-radius: 5px;
+}

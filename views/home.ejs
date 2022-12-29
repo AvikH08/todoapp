@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div id="content">
+        <div id = "main-area">
+            <h1 id="heading">TODO App</h1><hr>
+            <form action="/create-task" method = "POST">
+                <div id = "description">
+                    <label for="descr" class = "question">DESCRIPTION</label><br>
+                    <input type="text" name="descr" id="descr" placeholder = "What do you need to do?" required><br>
+                </div>
+                <hr>
+                <div id = "category-date-box">
+                    <div id = "category-box">
+                        <label for="cat" class = "question">CATEGORY</label><br>
+                    <select name="cat" id="cat" required>
+                        <option value="" disabled selected>Choose a category</option>
+                        <option value="PERSONAL">Personal</option>
+                        <option value="WORK">Work</option>
+                        <option value="SCHOOL">School</option>
+                        <option value="CLEANING">Cleaning</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+
+                    </div>
+                    
+                    <div id = "date-box">
+                        <label for="date" class = "question">DUE DATE</label><br>
+                        <input type="date" id = "date" name = "date" >
+                    </div>
+                    
+                </div>
+                <hr><br>
+                <button type = "submit" id = "add"> <span id = "add-task">
+                        <i class = "fa fa-plus"></i>
+                     ADD TASK</span></button>
+            </form>
+        </div>
+        <div id = "tasks">
+            <ul id = "tasklist">
+                <% for(let i of task_list) { %>
+
+                    <li>
+
+                        <div id="list-items">
+                            <div id = "delete-icon">
+                                <a href="/delete-task/?id=<%= i.id %>">
+                                    <i class = "fa fa-trash" id = "delete-button"></i>
+                                </a>
+                            </div>
+                            <div id="task-info">
+                                <%= i.descr %><br>
+                                <i class = "fa fa-calendar"></i>
+                                <% var date = i.date %>
+                                <%= date.substr(8, 10) %>
+                                <% var month = parseInt(date.substr(5, 7))-1 %>
+                                <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+                                <%= months[month] %>
+                                
+                                <%= date.substr(0, 4) %>
+                            </div>
+                            <% var color %>
+                            <% if(i.cat == 'PERSONAL') { %>
+                               <% color = 'blue' %>
+                            <% } else if(i.cat == 'WORK') { %> 
+                               <% color = 'purple'%>
+                            <% } else if(i.cat == 'SCHOOL') { %>
+                               <% color = 'green' %>
+                            <% } else if(i.cat == 'CLEANING') { %>
+                               <% color = 'orange' %>
+                            <% } else { %>
+                              <%  color = 'red' %>
+                            <% } %>
+                            <div id="task-category">
+                                <span style= "background-color:<%= color %>; color:white" id = "category-label">
+                                    <%= i.cat %>
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <hr>
+                <% } %>
+            </ul>
+        </div>
+        </div>
+    </body>
+</html>
